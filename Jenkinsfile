@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'rafk', url: 'https://github.com/arafat551/SELE.git'
+                git branch: 'main', url: 'https://github.com/arafat551/SELE.git'
             }
         }
 
