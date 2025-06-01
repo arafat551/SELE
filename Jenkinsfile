@@ -33,18 +33,16 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            emailext (
-                subject: "Résultat de la compilation Jenkins",
-                body: "La compilation est terminée. Voir le fichier joint pour plus d'infos.",
-                to: "destinataire@example.com",
-                attachLog: false,
-                attachmentsPattern: 'index.html',
-                mimeType: 'text/html',
-                from: 'arafat551@gmail.com',
-                replyTo: 'arafat551@gmail.com'
-            )
-        }
-    }
+    stage('Send Email') {
+            steps {
+                script {
+                    emailext (
+                        subject: '✔️ Rapport de test - Jenkins',
+                        body: 'Bonjour,<br><br>Voici le rapport <b>index.html</b> généré par Jenkins.<br><br>Cordialement,<br>Jenkins',
+                        to: 'kondiraf551@gmail.com',
+                        from: 'kondiraf551@gmail.com',
+                        attachmentsPattern: 'index.html'
+                    )
+                }
+           }
 }
