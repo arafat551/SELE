@@ -13,6 +13,16 @@ pipeline {
                     bat "java NEW.Testing.App"
                 }
             }
+            stage ("faire un push"){
+                steps{
+                dir("."){
+                    bat "echo > index.html"
+                    bat "git add ."
+                    bat "git commit -m je suis la mise"
+                    bat "git push -f origin main"
+                }
+                }
+            }
         }
     }
 }
