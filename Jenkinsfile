@@ -1,7 +1,4 @@
 pipeline {
-    triggers{
-        cron("H/2 * * * *")
-    }
     agent any
     stages {
         stage("clone") {
@@ -11,8 +8,8 @@ pipeline {
         }
         stage("compiler et execter") {
             steps {
-                dir("src//main//java") {
-                    bat "javac NEW//Testing//App.java"
+                dir("src/main/java") {
+                    bat "javac NEW/Testing/App.java"
                     bat "java NEW.Testing.App"
                 }
             }
