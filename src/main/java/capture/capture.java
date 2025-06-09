@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class capture {
 	public static void screen(WebDriver driver, String filename) {
 		File screenshoot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    	screenshoot.renameTo(new File (filename) );
+    	screenshoot.renameTo(new File ( "cap", filename) );
 		
 	}
 
